@@ -1,5 +1,5 @@
 ## 📽️ Demo  
-(Video/AIStressDetector.mp4)
+- Watch the demo video here: [AI Stress Detector Demo](Video/AIStressDetector.mp4)
 
 ## 🧠 AI Stress Detector
 
