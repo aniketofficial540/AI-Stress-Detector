@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Instagram Clone</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="/public/styles.css">
+    <link rel="script" href="/public/script.js">
+</head>
+
+<body>
+    <div class="container">
+        <!-- Left Sidebar -->
+        <div class="left-sidebar">
+            <div class="sidebar-header">
+                <h1 class="logo">Tulas Media</h1>
+            </div>
+            <nav class="sidebar-nav">
+                <a href="#" class="nav-item active">
+                    <i class="fas fa-home"></i>
+                    <span>Home</span>
+                </a>
+                <a href="#" class="nav-item">
+                    <i class="fas fa-search"></i>
+                    <span>Search</span>
+                </a>
+                <a href="#" class="nav-item">
+                    <i class="fas fa-compass"></i>
+                    <span>Explore</span>
+                </a>
+                <a href="#" class="nav-item">
+                    <i class="fas fa-film"></i>
+                    <span>Reels</span>
+                </a>
+                <a href="messages.html" class="nav-item">
+                    <i class="fas fa-envelope"></i>
+                    <span>Messages</span>
+                </a>
+                <a href="#" class="nav-item">
+                    <i class="fas fa-heart"></i>
+                    <span>Notifications</span>
+                </a>
+                <a href="#" class="nav-item">
+                    <i class="fas fa-plus-square"></i>
+                    <span>Create</span>
+                </a>
+                <a href="/profile/<%= user.username %>" class="nav-item">
+                    <i class="fas fa-user"></i>
+                    <span>Profile</span>
+                </a>
+            </nav>
+            <div class="sidebar-footer">
+                <a href="#" class="nav-item">
+                    <i class="fas fa-bars"></i>
+                    <span>More</span>
+                </a>
+            </div>
+        </div>
+
+        <!-- Main Content -->
+        <div class="main-content">
+            <!-- Stories -->
+            <div class="stories-container">
+                <div class="stories">
+                    <div class="story your-story">
+                        <div class="story-avatar">
+                            <img src="<%= profile.profile_image ? profile.profile_image : '/default-avatar.png' %>"
+                                alt="Profile Image" class="profile-img">
+                            <div class="add-story">+</div>
+                        </div>
+                        <span>Your Story</span>
+                    </div>
+                    <!-- Story items will be added by JavaScript -->
+                </div>
+            </div>
+
+            <!-- Posts Feed -->
+            <div class="posts-feed">
+
+                <% posts.forEach(post=> { %>
+
+                    <!-- new code -->
+                    <div class="post-header">
+                        <img class="post-avatar" src="<%= post.profile_image %>" alt="Profile">
+                        <span class="post-username">
+                            <%= post.display_name %>
+                                <!-- stress or not stress -->
+                                <% if (post.is_stress === 'Stress') { %>
+                                    <span class="stress-tag">Stress</span>
+                                <% } %>
+                        </span>
+                        <span class="post-more">...</span>
+                    </div>
+                    <img class="post-image" src="<%= post.image %>" alt="Post Image">
+                    <div class="post-actions">
+                        <i class="far fa-heart"></i>
+                        <i class="far fa-comment"></i>
+                        <i class="far fa-paper-plane"></i>
+                        <i class="far fa-bookmark"></i>
+                    </div>
+                    <!-- <div class="post-likes">${post.likes} likes</div> -->
+                    <div class="post-caption">
+                        <span class="username">
+                            <%= user.username %>
+                        </span>
+                        <%= post.caption %>
+                    </div>
+                    <div class="post-time">Posted on <%= post.timestamp %>
+                    </div>
+                    <% }) %>
+
+            </div>
+
+
+        </div>
+
+        <!-- Right Sidebar (Suggestions) -->
+        <div class="right-sidebar">
+            <div class="user-profile">
+                <img src="<%= profile.profile_image ? profile.profile_image : '/default-avatar.png' %>"
+                    alt="Profile Image" class="profile-img">
+                <div class="user-info">
+                    <span class="username"><a href="/profile/<%= user.username %>">
+                            <%= profile.display_name ? profile.display_name : user.username %>
+                        </a></span>
+                    <span class="name">
+                        <%= profile.display_name ? profile.display_name : user.username %>
+                    </span>
+                </div>
+                <a href="/login" class="switch">Switch</a>
+            </div>
+
+            <div class="suggestions-header">
+                <span>Suggestions For You</span>
+                <a href="#">See All</a>
+            </div>
+
+            <div class="suggestions-list">
+                <!-- Suggestions will be added by JavaScript -->
+            </div>
+
+            <footer class="right-sidebar-footer">
+                <div class="footer-links">
+                    <a href="#">About</a>
+                    <a href="#">Help</a>
+                    <a href="#">Press</a>
+                    <a href="#">API</a>
+                    <a href="#">Jobs</a>
+                    <a href="#">Privacy</a>
+                    <a href="#">Terms</a>
+                    <a href="#">Locations</a>
+                    <a href="#">Language</a>
+                </div>
+                <div class="copyright">
+                    © 2023 INSTAGRAM CLONE
+                </div>
+            </footer>
+        </div>
+    </div>
+
+    <script src="/public/script.js"></script>
+</body>
+
+</html>

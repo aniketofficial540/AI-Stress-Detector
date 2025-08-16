@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Instagram Profile</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="script" href="profile.js">
+
+
+</head>
+
+<body>
+    <div class="container">
+        <!-- Left Sidebar (same as home page) -->
+        <div class="left-sidebar">
+            <div class="sidebar-header">
+                <a href="index.html">
+                    <h1 class="logo">Tulas Media</h1>
+                </a>
+            </div>
+            <nav class="sidebar-nav">
+                <a href="index.html" class="nav-item">
+                    <i class="fas fa-home"></i>
+                    <span>Home</span>
+                </a>
+                <a href="#" class="nav-item">
+                    <i class="fas fa-search"></i>
+                    <span>Search</span>
+                </a>
+                <a href="#" class="nav-item">
+                    <i class="fas fa-compass"></i>
+                    <span>Explore</span>
+                </a>
+                <a href="#" class="nav-item">
+                    <i class="fas fa-film"></i>
+                    <span>Reels</span>
+                </a>
+                <a href="messages.html" class="nav-item">
+                    <i class="fas fa-envelope"></i>
+                    <span>Messages</span>
+                </a>
+                <a href="#" class="nav-item">
+                    <i class="fas fa-heart"></i>
+                    <span>Notifications</span>
+                </a>
+                <a href="#" class="nav-item active">
+                    <i class="fas fa-plus-square"></i>
+                    <span>Create</span>
+                </a>
+                <a href="profile.html" class="nav-item">
+                    <i class="fas fa-user"></i>
+                    <span>Profile</span>
+                </a>
+            </nav>
+            <div class="sidebar-footer">
+                <a href="#" class="nav-item">
+                    <i class="fas fa-bars"></i>
+                    <span>More</span>
+                </a>
+            </div>
+        </div>
+
+        <!-- Main Profile Content -->
+        <div class="profile-content">
+            <!-- Profile Header -->
+            <div class="profile-header">
+                <div class="profile-avatar">
+                    <img src="<%= profileImage %>" alt="Profile">
+                </div>
+                <div class="profile-info">
+                    <div class="profile-username">
+                        <%= username %>
+                            <button class="edit-profile">Edit Profile</button>
+                            <button class="view-archive">View Archive</button>
+                            <button class="settings"><i class="fas fa-cog"></i></button>
+                    </div>
+                    <div class="profile-stats">
+                        <div><strong>245</strong> posts</div>
+                        <div><strong>1,234</strong> followers</div>
+                        <div><strong>567</strong> following</div>
+                    </div>
+                    <div class="profile-bio">
+                        <%= displayName %>
+
+                            <%= bio %>
+
+                                <a href="#" class="website">example.com</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Profile Tabs -->
+            <div class="profile-tabs">
+                <button class="tab-btn active" data-tab="posts">
+                    <i class="fas fa-table"></i> POSTS
+                </button>
+                <button class="tab-btn" data-tab="saved">
+                    <i class="fas fa-bookmark"></i> SAVED
+                </button>
+                <button class="tab-btn" data-tab="tagged">
+                    <i class="fas fa-tag"></i> TAGGED
+                </button>
+            </div>
+
+
+            <!-- Profile Posts Grid -->
+            <div class="profile-posts" id="posts-tab">
+                <div class="grid-container">
+                    <!-- Posts will be loaded here -->
+                </div>
+                <!-- <div class="create-post-card" id="create-post-btn">
+                    <i class="fas fa-plus"></i>
+                    <p>Create New Post</p>
+                </div> -->
+            </div>
+
+            <!-- Saved Posts Tab (hidden by default) -->
+            <div class="saved-posts" id="saved-tab" style="display: none;">
+                <div class="grid-container">
+                    <!-- Saved posts will be here -->
+                </div>
+            </div>
+
+            <!-- Tagged Posts Tab (hidden by default) -->
+            <div class="tagged-posts" id="tagged-tab" style="display: none;">
+                <div class="grid-container">
+                    <!-- Tagged posts will be here -->
+                </div>
+            </div>
+        </div>
+
+        <!-- Right Sidebar (same as home page) -->
+        <div class="right-sidebar">
+            <div class="user-profile">
+                <img src="<%= profileImage %>" alt="User">
+                <div class="user-info">
+                    <span class="username">
+                        <%= username %>
+                    </span>
+                    <span class="name">
+                        <%= displayName %>
+                    </span>
+                </div>
+                <a href="/login" class="switch">Switch</a>
+            </div>
+
+            <div class="suggestions-header">
+                <span>Suggestions For You</span>
+                <a href="#">See All</a>
+            </div>
+
+            <div class="suggestions-list">
+                <!-- Suggestions will be here -->
+            </div>
+
+            <footer class="right-sidebar-footer">
+                <div class="footer-links">
+                    <a href="#">About</a>
+                    <a href="#">Help</a>
+                    <a href="#">Press</a>
+                    <a href="#">API</a>
+                    <a href="#">Jobs</a>
+                    <a href="#">Privacy</a>
+                    <a href="#">Terms</a>
+                    <a href="#">Locations</a>
+                    <a href="#">Language</a>
+                </div>
+                <div class="copyright">
+                    @designed by Subhash Sharma
+                </div>
+            </footer>
+        </div>
+    </div>
+
+    <script src="/public/profile.js"></script>
+</body>
+
+</html>

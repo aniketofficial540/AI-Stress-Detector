@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create a Post</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="create-post-container">
+        <h2>Create a New Post</h2>
+        <form id="postForm" enctype="multipart/form-data">
+            <input type="file" id="postImageInput" accept="image/*">
+            <img id="imagePreview" src="" alt="Image Preview" style="display: none;">
+            <textarea id="postCaption" placeholder="Write a caption..."></textarea>
+            <button type="button" id="sharePostBtn" disabled>Share Post</button>
+        </form>
+    </div>
+
+    <script>
+        document.getElementById('postImageInput').addEventListener('change', function(e) {
+            if (e.target.files && e.target.files[0]) {
+                const reader = new FileReader();
+                reader.onload = function(event) {
+                    document.getElementById('imagePreview').src = event.target.result;
+                    document.getElementById('imagePreview').style.display = 'block';
+                };
+                reader.readAsDataURL(e.target.files[0]);
+            }
+        });
+
+        document.getElementById('postCaption').addEventListener('input', function() {
+            const hasCaption = this.value.trim() !== '';
+            document.getElementById('sharePostBtn').disabled = !hasCaption;
+        });
+
+        document.getElementById('sharePostBtn').addEventListener('click', async function() {
+            const imageInput = document.getElementById('postImageInput');
+            const caption = document.getElementById('postCaption').value.trim();
+
+            if (!imageInput.files.length || !caption) {
+                alert("Please upload an image and add a caption.");
+                return;
+            }
+
+            const formData = new FormData();
+            formData.append("image", imageInput.files[0]);
+            formData.append("caption", caption);
+
+            try {
+                const response = await fetch('/upload-post', {
+                    method: 'POST',
+                    body: formData
+                });
+
+                if (response.ok) {
+                    alert("Post uploaded successfully!");
+                    window.location.href = "/profile"; // Redirect to profile page
+                } else {
+                    alert("Error uploading post.");
+                }
+            } catch (error) {
+                console.error('Error:', error);
+                alert("Failed to upload post.");
+            }
+        });
+    </script>
+</body>
+</html>

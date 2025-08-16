@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create New Post</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="create-post-container">
+        <header class="create-post-header">
+            <button id="back-button"><i class="fas fa-arrow-left"></i></button>
+            <h2>Create New Post</h2>
+            <button id="share-button" disabled>Share</button>
+        </header>
+
+        <div class="post-creation-flow">
+            <!-- Step 1: Image Selection -->
+            <div class="post-step" id="step-1">
+                <div class="upload-options">
+                    <i class="fas fa-cloud-upload-alt"></i>
+                    <p>Drag photos and videos here</p>
+                    <input type="file" id="post-image" accept="image/*" style="display: none;">
+                    <button class="select-btn" id="select-image-btn">Select from computer</button>
+                </div>
+            </div>
+
+            <!-- Step 2: Image Preview & Caption -->
+            <div class="post-step" id="step-2" style="display: none;">
+                <div class="image-preview-container">
+                    <img id="image-preview" src="#" alt="Preview">
+                </div>
+                <div class="caption-section">
+                    <div class="user-info">
+                        <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="User">
+                        <span>your_username</span>
+                    </div>
+                    <textarea id="post-caption" placeholder="Write a caption..."></textarea>
+                    <div class="post-options">
+                        <button class="add-location">
+                            <i class="fas fa-map-marker-alt"></i> Add Location
+                        </button>
+                        <button class="add-tags">
+                            <i class="fas fa-user-tag"></i> Tag People
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="create-post.js"></script>
+</body>
+</html>

@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Instagram Messages</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="messages-container">
+        <!-- Left Sidebar - Inbox -->
+        <div class="messages-sidebar">
+            <div class="messages-header">
+                <div class="header-left">
+                    <a href="index.html"><button class="back-button"><i class="fas fa-chevron-left"></i></button></a>
+                    <h2>your_username</h2>
+                </div>
+                <button class="new-message"><i class="far fa-edit"></i></button>
+            </div>
+            
+            <div class="search-bar">
+                <i class="fas fa-search"></i>
+                <input type="text" placeholder="Search">
+            </div>
+            
+            <div class="inbox-tabs">
+                <button class="tab active">Primary</button>
+                <button class="tab">General</button>
+                <button class="tab">Requests</button>
+            </div>
+            
+            <div class="conversation-list">
+                <!-- Conversations will be added here -->
+                <div class="empty-inbox">
+                    <i class="far fa-comment-dots"></i>
+                    <p>No messages yet</p>
+                    <small>Send a message to get started</small>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Right Side - Conversation -->
+        <div class="conversation-view">
+            <div class="empty-conversation">
+                <div class="empty-content">
+                    <i class="far fa-paper-plane"></i>
+                    <h3>Your Messages</h3>
+                    <p>Send private messages to a friend or group.</p>
+                    <button class="send-message-btn">Send Message</button>
+                </div>
+            </div>
+            
+            <!-- Active conversation would go here -->
+            <div class="active-conversation" style="display: none;">
+                <div class="conversation-header">
+                    <div class="user-info">
+                        <img src="" alt="Profile" class="user-avatar">
+                        <div class="user-details">
+                            <h3 class="username"></h3>
+                            <p class="active-status"></p>
+                        </div>
+                    </div>
+                    <div class="conversation-actions">
+                        <button><i class="fas fa-phone"></i></button>
+                        <button><i class="fas fa-video"></i></button>
+                        <button><i class="fas fa-info-circle"></i></button>
+                    </div>
+                </div>
+                
+                <div class="message-container">
+                    <!-- Messages would appear here -->
+                </div>
+                
+                <div class="message-input">
+                    <div class="input-actions">
+                        <button><i class="far fa-smile"></i></button>
+                        <button><i class="fas fa-camera"></i></button>
+                        <button><i class="fas fa-image"></i></button>
+                    </div>
+                    <input type="text" placeholder="Message...">
+                    <button class="send-button" disabled><i class="far fa-paper-plane"></i></button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="messages.js"></script>
+</body>
+</html>
